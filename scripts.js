@@ -12,6 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const authForm = document.getElementById('authForm');
     const authTitle = document.getElementById('authTitle');
     const trendingContainer = document.getElementById('trending');
+    const profileModal = document.getElementById('profileModal');
+    const closeProfileModal = document.querySelector('.close-profile');
+    const profileForm = document.getElementById('profileForm');
 
     let isLoggedIn = false;
     let tweets = [];
@@ -152,4 +155,33 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     updateAuthButtons();
+
+    // プロフィール編集モーダルを開く
+    document.querySelector('.sidebar ul li a[href="#"]').addEventListener('click', () => {
+        profileModal.style.display = 'block';
+    });
+
+    // プロフィール編集モーダルを閉じる
+    closeProfileModal.addEventListener('click', () => {
+        profileModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (event) => {
+        if (event.target === profileModal) {
+            profileModal.style.display = 'none';
+        }
+    });
+
+    // プロフィール編集フォームの送信
+    profileForm.addEventListener('submit', (event) => {
+        event.preventDefault();
+        const bio = document.getElementById('bio').value;
+        const profilePic = document.getElementById('profilePic').files[0];
+        const coverPhoto = document.getElementById('coverPhoto').files[0];
+
+        // ここにプロフィール更新のバックエンドとの連携コードを追加
+
+        alert('プロフィールが更新されました');
+        profileModal.style.display = 'none';
+    });
 });
