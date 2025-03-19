@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vigyanet - ホーム</title>
     <link rel="stylesheet" href="styles.css">
-    <script defer src="scripts.js"></script> <!-- JavaScriptファイルを追加 -->
+    <script defer src="scripts.js"></script>
 </head>
 <body>
     <header>
@@ -81,6 +81,29 @@
                     <input type="password" id="password" required>
                 </div>
                 <button type="submit">送信</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- プロフィール編集モーダルのHTML -->
+    <div id="profileModal" class="modal">
+        <div class="modal-content">
+            <span class="close-profile">&times;</span>
+            <form id="profileForm">
+                <h2>プロフィール編集</h2>
+                <div>
+                    <label for="bio">バイオ</label>
+                    <textarea id="bio"></textarea>
+                </div>
+                <div>
+                    <label for="profilePic">プロフィール画像</label>
+                    <input type="file" id="profilePic">
+                </div>
+                <div>
+                    <label for="coverPhoto">カバー写真</label>
+                    <input type="file" id="coverPhoto">
+                </div>
+                <button type="submit">保存</button>
             </form>
         </div>
     </div>
