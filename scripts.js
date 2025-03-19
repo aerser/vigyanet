@@ -11,27 +11,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const closeModal = document.querySelector('.close');
     const authForm = document.getElementById('authForm');
     const authTitle = document.getElementById('authTitle');
+    const trendingContainer = document.getElementById('trending');
 
     let isLoggedIn = false;
+    let tweets = [];
 
     // ツイートの投稿
     tweetButton.addEventListener('click', () => {
         const content = tweetContent.value.trim();
         if (content) {
+            const tweet = {
+                user: 'あなた',
+                handle: '@your_handle',
+                time: '今',
+                content: content,
+                likes: Math.floor(Math.random() * 100) // ランダムな「いいね」数を追加
+            };
+            tweets.push(tweet);
+            updateTweets();
+            tweetContent.value = '';
+        }
+    });
+
+    // ツイートの更新
+    function updateTweets() {
+        tweetsContainer.innerHTML = '';
+        tweets.sort((a, b) => b.likes - a.likes); // 「いいね」数でソート
+        tweets.forEach(tweet => {
             const tweetElement = document.createElement('div');
             tweetElement.classList.add('tweet');
             tweetElement.innerHTML = `
                 <div class="tweet-header">
-                    <span class="user">あなた</span>
-                    <span class="handle">@your_handle</span>
-                    <span class="time">今</span>
+                    <span class="user">${tweet.user}</span>
+                    <span class="handle">${tweet.handle}</span>
+                    <span class="time">${tweet.time}</span>
                 </div>
-                <div class="tweet-content">${content}</div>
+                <div class="tweet-content">${tweet.content}</div>
+                <div class="tweet-likes">${tweet.likes} いいね</div>
             `;
-            tweetsContainer.prepend(tweetElement);
-            tweetContent.value = '';
-        }
-    });
+            tweetsContainer.appendChild(tweetElement);
+        });
+        updateTrending();
+    }
+
+    // トレンドの更新
+    function updateTrending() {
+        const trending = {};
+        tweets.forEach(tweet => {
+            const words = tweet.content.split(' ');
+            words.forEach(word => {
+                if (!trending[word]) {
+                    trending[word] = 0;
+                }
+                trending[word]++;
+            });
+        });
+        const sortedTrending = Object.entries(trending).sort((a, b) => b[1] - a[1]).slice(0, 10);
+        trendingContainer.innerHTML = '';
+        sortedTrending.forEach(([word, count]) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `${word} (${count})`;
+            trendingContainer.appendChild(listItem);
+        });
+    }
 
     // 通知の表示
     notificationLink.addEventListener('click', () => {
