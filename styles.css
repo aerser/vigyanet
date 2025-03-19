@@ -1,0 +1,172 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background: #1da1f2;
+    color: #fff;
+    padding: 1rem 0;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.nav-links li {
+    margin-left: 2rem;
+}
+
+.nav-links a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 1rem auto;
+    padding: 0 1rem;
+}
+
+.sidebar {
+    width: 20%;
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    margin-bottom: 1rem;
+}
+
+.sidebar ul a {
+    color: #1da1f2;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+.feed {
+    width: 50%;
+}
+
+.tweet-box {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.tweet-box textarea {
+    width: 100%;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    resize: none;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+.tweet-box button {
+    background: #1da1f2;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    cursor: pointer;
+    margin-top: 0.5rem;
+    float: right;
+}
+
+.tweets {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.tweet {
+    padding: 1rem;
+    border-bottom: 1px solid #ddd;
+}
+
+.tweet:last-child {
+    border-bottom: none;
+}
+
+.tweet-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.tweet-header .user {
+    font-weight: bold;
+}
+
+.tweet-header .handle, .tweet-header .time {
+    color: #657786;
+    font-size: 0.9rem;
+}
+
+.tweet-content {
+    font-size: 1rem;
+}
+
+.widgets {
+    width: 25%;
+}
+
+.widget {
+    background: #fff;
+    padding: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 1rem;
+}
+
+.widget h3 {
+    margin-top: 0;
+}
+
+.widget ul {
+    list-style: none;
+    padding: 0;
+}
+
+.widget ul li {
+    margin-bottom: 0.5rem;
+}
+
+footer {
+    background: #1da1f2;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
