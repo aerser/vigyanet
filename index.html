@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vigyanet - ホーム</title>
     <link rel="stylesheet" href="styles.css">
+    <script defer src="scripts.js"></script> <!-- JavaScriptファイルを追加 -->
 </head>
 <body>
     <header>
@@ -13,9 +14,14 @@
             <ul class="nav-links">
                 <li><a href="#">ホーム</a></li>
                 <li><a href="#">探索</a></li>
-                <li><a href="#">通知</a></li>
-                <li><a href="#">メッセージ</a></li>
+                <li><a href="#" id="notificationLink">通知</a></li>
+                <li><a href="#" id="messageLink">メッセージ</a></li>
             </ul>
+            <div class="auth-links">
+                <button id="loginButton">ログイン</button>
+                <button id="registerButton">新規登録</button>
+                <button id="logoutButton" style="display: none;">ログアウト</button>
+            </div>
         </nav>
     </header>
     <main>
@@ -31,30 +37,11 @@
             </aside>
             <section class="feed">
                 <div class="tweet-box">
-                    <textarea placeholder="今何してる？"></textarea>
-                    <button>ツイート</button>
+                    <textarea id="tweetContent" placeholder="今何してる？"></textarea>
+                    <button id="tweetButton">ツイート</button>
                 </div>
-                <div class="tweets">
-                    <div class="tweet">
-                        <div class="tweet-header">
-                            <span class="user">ユーザー1</span>
-                            <span class="handle">@user1</span>
-                            <span class="time">2時間前</span>
-                        </div>
-                        <div class="tweet-content">
-                            これはサンプルツイートです。
-                        </div>
-                    </div>
-                    <div class="tweet">
-                        <div class="tweet-header">
-                            <span class="user">ユーザー2</span>
-                            <span class="handle">@user2</span>
-                            <span class="time">3時間前</span>
-                        </div>
-                        <div class="tweet-content">
-                            もう一つのサンプルツイートです。
-                        </div>
-                    </div>
+                <div class="tweets" id="tweets">
+                    <!-- ツイートがここに表示されます -->
                 </div>
             </section>
             <aside class="widgets">
@@ -80,5 +67,24 @@
     <footer>
         <p>&copy; 2025 Vigyanet. All rights reserved.</p>
     </footer>
+
+    <!-- モーダルのHTML -->
+    <div id="authModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <form id="authForm">
+                <h2 id="authTitle">ログイン</h2>
+                <div>
+                    <label for="username">ユーザー名</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div>
+                    <label for="password">パスワード</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">送信</button>
+            </form>
+        </div>
+    </div>
 </body>
 </html>
